@@ -1,5 +1,6 @@
 import js from '@eslint/js';
 import globals from 'globals';
+import react from 'eslint-plugin-react';
 
 export default [
   {
@@ -15,6 +16,13 @@ export default [
       },
       globals: globals.browser,
     },
-    rules: js.configs.recommended.rules,
+    plugins: {
+      react,
+    },
+    rules: {
+      ...js.configs.recommended.rules,
+      'react/jsx-uses-react': 'error',
+      'react/jsx-uses-vars': 'error',
+    },
   },
 ];
